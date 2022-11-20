@@ -1,0 +1,12 @@
+package Configuracion;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class MiConfiguracion {
+	
+	@Bean
+	public ModelMapper() {
+		return new ModelMapper();
+	}
+}

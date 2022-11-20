@@ -1,0 +1,16 @@
+package com.example.crud.controller;
+
+import java.util.List;
+
+import com.example.crud.modelo.Producto;
+import com.example.crud.modelo.ProductoRepositorio;
+
+public class ProductoController {
+	private final ProductoRepositorio productoRepositorio;
+	
+	@GetMapping("\producto")
+	public List<Producto> obtenerTodos(){
+		return productoRepositorio.findAll();
+	}
+
+}

@@ -1,0 +1,20 @@
+package com.example.crud.controller;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.crud.modelo.Producto;
+import com.example.crud.modelo.ProductoRepositorio;
+
+@RestController
+@RequiredConstructor
+public class ProductoController {
+	private final ProductoRepositorio productoRepositorio;
+	
+	@GetMapping("\producto")
+	public List<Producto> obtenerTodos(){
+		return productoRepositorio.findAll();
+	}
+
+}

@@ -1,0 +1,1 @@
+insert into producto(id,nombre,precio) values (NEXTVAL('hibernate_sequence'), 'Juice', 9);

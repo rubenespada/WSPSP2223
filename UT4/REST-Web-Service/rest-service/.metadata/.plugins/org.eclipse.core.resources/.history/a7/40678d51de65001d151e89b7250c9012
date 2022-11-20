@@ -1,0 +1,49 @@
+package com.example.crud.controller;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.crud.modelo.Producto;
+import com.example.crud.modelo.ProductoRepositorio;
+
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequiredArgsConstructor
+public class ProductoController {
+	private final ProductoRepositorio productoRepositorio;
+	
+	@GetMapping("/producto")
+	public List<Producto> obtenerTodos(){
+		return productoRepositorio.findAll();
+	}
+	
+	@GetMapping("/producto/{id}")
+	public Producto obtenerUno(@PathVariable Long id) {
+		return productoRepositorio.findById(id).orElse(null);
+	}
+	
+	@PostMapping("/producto")
+	public Producto nuevoProducto(@RequestBody Producto nuevo) {
+		return productoRepositorio.save(nuevo);
+	}
+	
+	@PutMapping("/producto/{id}")
+	public Producto editarProducto(@RequestBody Producto editar, @PathVariable Long id) {
+		if(productoRepositorio.existsById(id)) {
+			Producto result = productoRepositorio.findById(id).get();
+			productoRepositorio.deleteById(id);
+			return result;
+		}else {
+			return null;
+		}
+	}
+	
+
+}

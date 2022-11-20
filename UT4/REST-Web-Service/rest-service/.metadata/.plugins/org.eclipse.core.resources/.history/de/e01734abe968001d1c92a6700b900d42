@@ -1,0 +1,24 @@
+package dto.converter;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Component;
+
+import com.example.crud.modelo.Producto;
+
+import dto.CreateProductoDTO;
+import dto.ProductoDTO;
+import lombok.RequiredArgsConstructor;
+
+@Component
+@RequiredArgsConstructor
+public class ProductoDTOConverter {
+	private final ModelMapper modelMapper;
+	
+	public ProductoDTO convertToDto (Producto producto) {
+		return modelMapper.map(producto, ProductoDTO.class);
+	}
+	
+	public Producto converToProducto(CreateProductoDTO createProductoDTO ) {
+		return modelMapper.map(createProductoDTO, Producto.class);
+	}
+}

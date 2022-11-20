@@ -1,0 +1,11 @@
+package com.example.crud.modelo;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+public class Producto {
+	
+	@Id @GeneratedValue
+	private Long id;
+
+}
