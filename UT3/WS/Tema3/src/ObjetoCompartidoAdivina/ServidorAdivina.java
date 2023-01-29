@@ -14,10 +14,11 @@ public class ServidorAdivina {
 		
 		int id = 0;
 		while(true) {
+			ObjetoCompartido objeto = new ObjetoCompartido(5);
 			Socket cliente = new Socket();
 			cliente = servidor.accept();
 			id++;
-			HiloServidorAdivina hilo = new HiloServidorAdivina(cliente,objeto,id);
+			HiloServidorAdivina hilo = new HiloServidorAdivina(cliente,objeto,25,id);
 			hilo.start();
 		}
 	}
