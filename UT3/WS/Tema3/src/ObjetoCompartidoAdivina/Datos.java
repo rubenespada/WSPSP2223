@@ -1,6 +1,8 @@
 package ObjetoCompartidoAdivina;
 
-public class Datos {
+import java.io.Serializable;
+
+public class Datos implements Serializable{
 	String cadena;
 	int intentos;
 	int identificador;
